@@ -1,0 +1,66 @@
+.bsw-button {
+  padding: 1em 2em;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5715;
+  border-radius: var(--border-radius);
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045)
+}
+
+/* type */
+.bsw-button-type-default {
+  /* background-color: var(--haha-asd); */
+}
+
+.bsw-button-type-primary {
+  background-color: var(--haha-asd);
+}
+
+.bsw-button-type-secondary {
+  background-color: var(--haha-asd);
+}
+
+/* size */
+.bsw-button-size-default {
+  font-size: var(--font-size-default);
+}
+
+.bsw-button-size-xs {
+  font-size: var(--font-size-xs);
+}
+
+.bsw-button-size-sm {
+  font-size: var(--font-size-sm);
+}
+
+.bsw-button-size-lg {
+  font-size: var(--font-size-lg);
+}
+
+.bsw-button-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+
+
+
+
+
+.ant-btn-primary {
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.ant-btn, .ant-btn:active, .ant-btn:focus {
+  outline: 0;
+}
