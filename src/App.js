@@ -64,9 +64,9 @@ function App() {
   }
 
   const Typography = () => {
-    const types = {
-      h1: "",
-    }
+    // const types = {
+    //   h1: "",
+    // }
     return (
       <div>
 
