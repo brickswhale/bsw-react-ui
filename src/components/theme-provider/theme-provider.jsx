@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useReducer } from "react";
+import React, { useState, useEffect, useMemo, createContext, useContext, useReducer } from "react";
 
 
 const themes = {
@@ -21,18 +21,29 @@ const themes = {
   }
 };
 
-const initialState = {
-
+let initialState = {
+  theme: {
+    color: {
+      lightShades: "#F6F6F6",
+      lightAccent: "#D2B659",
+      primary: "#73BCE6",
+      darkAccent: "#73708C",
+      darkShades: "#3B73B4"
+    }
+  }
 }
 
 export const ThemeContext = createContext(initialState);
+export const useThemeProvider = () => {
+  return useContext(ThemeContext);
+}
 
 const reducer = (prevState, action) => {
   switch (action.type) {
-    case 'INITIAL':
+    case 'SET_THEME':
       return {
         ...prevState,
-        sample: action.sample
+        theme: action.theme
       }
     default: 
       return prevState;
@@ -51,22 +62,32 @@ const setCSSVariables = (theme) => {
 
 function ThemeProvider(props) {
   const { theme=null, children } = props;
+  if (theme != null) {
+    initialState['theme'] = theme
+  }
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {...initialState});
 
+  const methods = useMemo(()=>({
+    setTheme: (newTheme) => {
+      dispatch({ type: 'SET_THEME', theme: newTheme });
+    }
+  }),[]);
 
-  const toggleTheme = () => {
-    
-  };
+  useEffect(() => {
+    if (state.theme != null) {
+      setCSSVariables(state.theme);
+    }
+  },[state.theme]);
 
   useEffect(() => {
     if (theme != null) {
-      setCSSVariables(theme);
+      methods.setTheme(theme);
     }
   },[theme]);
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme }}>
+    <ThemeContext.Provider value={[state, methods]}>
       {children}
     </ThemeContext.Provider>
   );

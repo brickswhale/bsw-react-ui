@@ -8,7 +8,8 @@
   --color-white-opacity: rgba(255,255,255,0.4);
   --color-black-opacity: rgba(0,0,0,0.4);
 
-  --color-dynamic: #000000;
+  --color-dynamic-light: #000000;
+  --color-dynamic-dark: #000000;
 
   --color-lightShades: #F6F6F6; /* Light shades: Use this color as the background for your dark-on-light designs, or the text color of an inverted design. */
   --color-lightAccent: #D2B659; /* Light accent: Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
@@ -16,27 +17,30 @@
   --color-darkAccent: #73708C; /* Dark accent: Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
   --color-darkShades: #3B73B4; /* Dark shades: Use as the text color for dark-on-light designs, or as the background for inverted designs. */
 
-  --palette-color1-plus: #beb3b3; /* Darker color 1*/
-  --palette-color5-plus: #2f4862; /* Darker color 5*/
+  --color-color1-plus: #beb3b3; /* Darker color 1*/
+  --color-color5-plus: #2f4862; /* Darker color 5*/
 
   /* color opacity 60% */
   --color-dynamic60: #00000099;
 
-  --palette-color160: #f9f8f899;
-  --palette-color260: #8d8e9999;
-  --palette-color360: #d2e68499;
-  --palette-color460: #ae525099;
-  --palette-color560: #40618499;
+  --color-color160: #f9f8f899;
+  --color-color260: #8d8e9999;
+  --color-color360: #d2e68499;
+  --color-color460: #ae525099;
+  --color-color560: #40618499;
 
-
+  --color-success: green;
+  --color-danger: red;
+  --color-warning: orange;
 
 
   /* Typography */
-  --font-size-default: 16px;
+  --default-size: 1;
+  --font-size-default: 1em;
   --font-size-xs: 0.5em;
   --font-size-sm: 0.75em;
-  --font-size-lg: 1.5em;
-  --font-size-xl: 2.5em;
+  --font-size-lg: 1.25em;
+  --font-size-xl: 1.5em;
 
   --font-family1: 'Montserrat', sans-serif;
   --font-family2: 'Open Sans', sans-serif;
@@ -44,14 +48,28 @@
 
   /* Sizing and spacing */
   --space-1: 16px;
-
+  --space-button: 0.75em 2em;
+  --space-section: 0.75em 2em;
 
   /* Border */
-  --border-radius: 0.5em;
+  --border-radius-topleft: 0.25em;
+  --border-radius-topright: 0.25em;
+  --border-radius-bottomleft: 0.25em;
+  --border-radius-bottomright: 0.25em;
+  --border-radius: var(--border-radius-topleft) var(--border-radius-topright) var(--border-radius-bottomright) var(--border-radius-bottomleft);
+  --border-width: 0.5px;
 
   /* shadow */
-  --shadow-style: '';
-  --shadow-depth: '';
+  /* negative - 0 - positive */
+  --shadow-horizontal: 0px; 
+  --shadow-vertical: 0px;
+  --shadow-spread: 2px;
+
+  /* 0 - positive */
+  --shadow-blur: 3px;
+  --shadow-opacity: "";
+  --shadow-color: rgba(0,0,0,0.4);
+  --shadow-button: var(--shadow-horizontal) var(--shadow-vertical) var(--shadow-blur) var(--shadow-spread) var(--shadow-color) 
 
 
 }
@@ -75,4 +93,39 @@ body {
 
 html, body, div, #root {
   box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 3.3125rem;
+  line-height: 1.15em;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.5em;
+}
+
+h3 {
+  font-size: 1.5625rem;
+  line-height: 1.4em;
+}
+
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.5em;
+}
+
+h5 {
+  font-size: 1.0625rem;
+  line-height: 1.55em;
+}
+
+h6 {
+  font-size: .75rem;
+  font-weight: 500;
 }
