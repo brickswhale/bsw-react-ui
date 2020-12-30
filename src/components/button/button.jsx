@@ -4,7 +4,7 @@ import './button.css';
 const Button = (props) => {
   const { 
     type="default", // default, outline, ghost
-    status="default", // default, primary, success, warning, danger
+    status="default", // default, secondary, success, warning, danger
     size="default", // default, xs, sm, lg, xl 
     onClick=()=>{},
     className="", 

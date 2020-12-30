@@ -4,17 +4,25 @@ import chroma from 'chroma-js';
 
 const Controller = (props) => {
     let [ state, { setTheme } ]= useThemeProvider();
+    let palette = ["lightShades", "lightAccent", "primary", "darkAccent", "darkShades"]
     return (
         <div>
-        <input type="color" id="color1" name="color" value={chroma(state.theme.color.primary)} onChange={(e)=>{
-            setTheme({
-            ...state.theme, 
-            color: {
-                ...state.theme.color,
-                primary: chroma(e.target.value)
-            } 
-            })
-        }} />
+            {
+                palette.map((aKey,index)=>{
+                    return (
+                        <input key={index} type="color" id={`color${index}`} name="color" value={chroma(state.theme.color[aKey])} onChange={(e)=>{
+                            setTheme({
+                            ...state.theme, 
+                            color: {
+                                ...state.theme.color,
+                                [aKey]: chroma(e.target.value)
+                            } 
+                            })
+                        }} />
+                    )
+                })
+            }
+
         </div>
     )
 }

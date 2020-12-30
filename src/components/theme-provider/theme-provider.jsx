@@ -1,25 +1,5 @@
 import React, { useState, useEffect, useMemo, createContext, useContext, useReducer } from "react";
-
-
-const themes = {
-  dark: {
-    "palette-color3": "#1ca086",
-    separatorColor: "rgba(255,255,255,0.20)",
-    textColor: "white",
-    backgroundColor: "#121212",
-    headerBackgroundColor: "rgba(255,255,255,0.05)",
-    blockquoteColor: "rgba(255,255,255,0.20)",
-    icon: "white"
-  },
-  light: {
-    separatorColor: "rgba(0,0,0,0.08)",
-    textColor: "black",
-    backgroundColor: "white",
-    headerBackgroundColor: "#f6f6f6",
-    blockquoteColor: "rgba(0,0,0,0.80)",
-    icon: "#121212"
-  }
-};
+import chroma from 'chroma-js';
 
 let initialState = {
   theme: {
@@ -33,7 +13,7 @@ let initialState = {
   }
 }
 
-export const ThemeContext = createContext(initialState);
+const ThemeContext = createContext(initialState);
 export const useThemeProvider = () => {
   return useContext(ThemeContext);
 }
@@ -41,6 +21,7 @@ export const useThemeProvider = () => {
 const reducer = (prevState, action) => {
   switch (action.type) {
     case 'SET_THEME':
+      // the outcome of setting theme here is when a new theme passed in with different key/css variable name, the previous variable will remain if new theme doesn't override, need to refresh the page to clear the runtime effect whenever new theme is provided
       return {
         ...prevState,
         theme: action.theme
@@ -51,22 +32,56 @@ const reducer = (prevState, action) => {
 }
 
 
-const setCSSVariables = (theme) => {
+const setCSSVariables = (theme, type="color") => {
   let themeCategories = Object.keys(theme);
   themeCategories.forEach((aCategory)=>{
     for (const value in theme[aCategory]) {
-      document.documentElement.style.setProperty(`--${aCategory}-${value}`, theme[aCategory][value]);
+      let color = theme[aCategory][value];
+      if (type == 'color') {
+        // rgb
+        let colorRGB = chroma(color).rgb();
+        document.documentElement.style.setProperty(`--${aCategory}-${value}-rgb`, colorRGB);
+
+        // contrast
+        let contrastColor = "#FFFFFF";
+        let contrastLevel = chroma.contrast(color, contrastColor);
+        if (contrastLevel <= 4.5) {
+          contrastColor = "#262626";
+        }
+        document.documentElement.style.setProperty(`--${aCategory}-${value}-contrast`, contrastColor);
+
+        // darken
+        let darkenColor = chroma(color).darken()
+        document.documentElement.style.setProperty(`--${aCategory}-${value}-darken`, darkenColor);
+
+        // find success, warning, danger colors based on primary color
+        if (value == "primary") {
+          let colorHSL = chroma(color).hsl();
+          let min = 0.5;
+          let max = 0.7;
+          let saturation = colorHSL[1] < min ? min : (colorHSL[1] > max ? max : colorHSL[1]);
+          let lightness = colorHSL[2] < min ? min : (colorHSL[2] > max ? max : colorHSL[2]);
+
+          let successColor = chroma([140, saturation, lightness], 'hsl')
+          let warningColor = chroma([40, saturation, lightness], 'hsl')
+          let dangerColor = chroma([0, saturation, lightness], 'hsl')
+          document.documentElement.style.setProperty(`--${aCategory}-success`, successColor);
+          document.documentElement.style.setProperty(`--${aCategory}-warning`, warningColor);
+          document.documentElement.style.setProperty(`--${aCategory}-danger`, dangerColor);
+        }
+      }
+      document.documentElement.style.setProperty(`--${aCategory}-${value}`, color);
     }
   })
 };
 
 function ThemeProvider(props) {
-  const { theme=null, children } = props;
-  if (theme != null) {
-    initialState['theme'] = theme
-  }
+  const { theme=null, type="light", children } = props;
+  // if (theme != null) {
+  //   initialState['theme'] = theme
+  // }
 
-  const [state, dispatch] = useReducer(reducer, {...initialState});
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const methods = useMemo(()=>({
     setTheme: (newTheme) => {

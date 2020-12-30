@@ -1,0 +1,286 @@
+/*
+  Note:
+  Available option: top, bottom, left, right
+  This base drawer controls only the drawer parent,
+  alignment of child need to be customize in respective component css
+ */
+.bsw-drawer {
+    position: fixed;
+    z-index: 1000;
+    -webkit-transition: height 0s ease .3s,width 0s ease .3s,-webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: height 0s ease .3s,width 0s ease .3s,-webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),height 0s ease .3s,width 0s ease .3s;
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),height 0s ease .3s,width 0s ease .3s,-webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+}
+
+/* transition for drawer to slide in and out */
+.bsw-drawer > * {
+    -webkit-transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1),-webkit-box-shadow .3s cubic-bezier(.7,.3,.1,1);
+    transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1),-webkit-box-shadow .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),box-shadow .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),box-shadow .3s cubic-bezier(.7,.3,.1,1),-webkit-transform .3s cubic-bezier(.7,.3,.1,1),-webkit-box-shadow .3s cubic-bezier(.7,.3,.1,1);
+}
+
+.bsw-drawer-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,.45);
+    opacity: 0;
+    transition: opacity .3s linear,height 0s ease .3s;
+    pointer-events: none;
+}
+
+.bsw-drawer.bsw-drawer-open .bsw-drawer-mask {
+    height: 100%;
+    opacity: 1;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-animation: bswDrawerFadeIn .3s cubic-bezier(.7,.3,.1,1);
+    animation: bswDrawerFadeIn .3s cubic-bezier(.7,.3,.1,1);
+    pointer-events: auto;
+}
+
+@keyframes bswDrawerFadeIn {
+    0% {
+       opacity: 0; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+
+.bsw-drawer-content-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+/* Left & Right */
+.bsw-drawer-direction-left, .bsw-drawer-direction-right {
+    height: 100%;
+    width: 0;
+    top: 0;
+}
+
+.bsw-drawer-direction-left .bsw-drawer-content-wrapper, .bsw-drawer-direction-right .bsw-drawer-content-wrapper {
+    height: 100%;
+}
+
+.bsw-drawer-direction-left, .bsw-drawer-direction-left .bsw-drawer-content-wrapper {
+    left: 0;
+}
+
+.bsw-drawer-direction-right, .bsw-drawer-direction-right .bsw-drawer-content-wrapper {
+    right: 0;
+}
+ 
+.bsw-drawer-direction-left.bsw-drawer-open, .bsw-drawer-direction-right.bsw-drawer-open {
+    width: 100%;
+    -webkit-transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),-webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+}
+
+
+/* Top & Bottom */
+.bsw-drawer-direction-bottom, .bsw-drawer-direction-top {
+    height: 0%;
+    width: 100%;
+    left: 0;
+}
+
+.bsw-drawer-direction--bottom .bsw-drawer-content-wrapper, .bsw-drawer-direction-top .bsw-drawer-content-wrapper {
+    width: 100%;
+}
+
+.bsw-drawer-direction-top {
+    top: 0;
+}
+
+.bsw-drawer-direction-bottom, .bsw-drawer-direction-bottom .bsw-drawer-content-wrapper {
+    bottom: 0;
+}
+
+.bsw-drawer-direction-bottom.bsw-drawer-open, .bsw-drawer-direction-top.bsw-drawer-open {
+    height: 100%;
+    -webkit-transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: -webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1);
+    transition: transform .3s cubic-bezier(.7,.3,.1,1),-webkit-transform .3s cubic-bezier(.7,.3,.1,1);
+}
+
+.bsw-drawer .bsw-drawer-content {
+    height: 100%;
+    width: 100%;
+}
+
+.bsw-drawer-content {
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+}
+
+
+.bsw-drawer-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.bsw-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--bsw-padding);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.bsw-drawer-closeIcon {
+    cursor: pointer;
+}
+
+.bsw-drawer-body {
+    flex-grow: 1;
+    padding: var(--bsw-padding);
+    overflow: auto;
+    line-height: 1.5715;
+}
+
+
+  /* Open from left */
+  [data-drawer-direction="left"]{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+  }
+  [data-drawer-direction="left"][data-drawer-open="false"]{
+    left: -100%;
+  }
+  
+  [data-drawer-direction="left"][data-drawer-open="true"]{
+    left: 0;
+  }
+  
+  /* Open from right */
+  [data-drawer-direction="right"]{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+  }
+  [data-drawer-direction="right"][data-drawer-open="false"]{
+    right: -100%;
+  }
+  
+  [data-drawer-direction="right"][data-drawer-open="true"]{
+    right: 0;
+  }
+  
+  /* Open from top */
+  [data-drawer-direction="top"]{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: -100%;
+  }
+  [data-drawer-direction="top"][data-drawer-open="false"]{
+    top: -100%;
+  }
+  
+  [data-drawer-direction="top"][data-drawer-open="true"]{
+    top: 0;
+  }
+  /* Open from bottom */
+  [data-drawer-direction="bottom"]{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+  }
+  [data-drawer-direction="bottom"][data-drawer-open="false"]{
+    bottom: -100%;
+  }
+  
+  [data-drawer-direction="bottom"][data-drawer-open="true"]{
+    bottom: 0;
+  }
+  
+  @media only screen
+    and (min-width: 768px)
+    and (max-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      [data-drawer-direction="left"][data-drawer-coverage="auto"]{
+        height: 100%;
+        width: 250px;
+        top: 0;
+        bottom: 0;
+        left: -250px;
+      }
+      [data-drawer-direction="left"][data-drawer-open="false"][data-drawer-coverage="auto"]{
+        left: -250px;
+      }
+      [data-drawer-direction="left"][data-drawer-open="true"][data-drawer-coverage="auto"]{
+        left: 0;
+      }
+      [data-drawer-direction="right"][data-drawer-coverage="auto"]{
+        height: 100%;
+        width: 250px;
+        top: 0;
+        bottom: 0;
+        right: -250px;
+      }
+      [data-drawer-direction="right"][data-drawer-open="false"][data-drawer-coverage="auto"]{
+        right: -250px;
+      }
+      [data-drawer-direction="right"][data-drawer-open="true"][data-drawer-coverage="auto"]{
+        right: 0;
+      }
+  
+  }
+  
+  @media screen
+    and (min-width: 1025px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      [data-drawer-direction="left"][data-drawer-coverage="auto"]{
+        height: 100%;
+        width: 350px;
+        top: 0;
+        bottom: 0;
+        left: -350px;
+      }
+      [data-drawer-direction="left"][data-drawer-open="false"][data-drawer-coverage="auto"]{
+        left: -350px;
+      }
+      [data-drawer-direction="left"][data-drawer-open="true"][data-drawer-coverage="auto"]{
+        left: 0;
+      }
+      [data-drawer-direction="right"][data-drawer-coverage="auto"]{
+        height: 100%;
+        width: 350px;
+        top: 0;
+        bottom: 0;
+        right: -350px;
+      }
+      [data-drawer-direction="right"][data-drawer-open="false"][data-drawer-coverage="auto"]{
+        right: -350px;
+      }
+      [data-drawer-direction="right"][data-drawer-open="true"][data-drawer-coverage="auto"]{
+        right: 0;
+      }
+  }
+  

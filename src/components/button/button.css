@@ -18,18 +18,18 @@
 */
 
 .bsw-button {
-  padding: var(--space-button);
+  padding: var(--bsw-space-button);
   position: relative;
   font-weight: 400;
   line-height: 1.5715;
   outline: none;
   border: none;
-  border-style: solid;
-  border-width: var(--border-width);
-  border-radius: var(--border-radius);
+  /* border-style: solid; */
+  border-width: var(--bsw-border-width);
+  border-radius: var(--bsw-border-radius);
 
-  /* box-shadow: var(--shadow-button);
-  -webkit-box-shadow: var(--shadow-button); */
+  /* box-shadow: var(--bsw-shadow-button);
+  -webkit-box-shadow: var(--bsw-shadow-button); */
   /* text-shadow: 1px 1px rgba(0,0,0,0.1), -1px 1px rgba(0,0,0,0.1), 1px -1px rgba(0,0,0,0.1), -1px -1px rgba(0,0,0,0.1); */
   display: inline-block;
   text-align: center;
@@ -49,131 +49,119 @@
 
 /* Status & Type */
 .bsw-button-status-default {
-  background-color: var(--color-primary);
+  background-color: var(--bsw-color-primary);
 }
 .bsw-button-status-default.bsw-button-type-default {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--bsw-color-primary);
+  border-color: var(--bsw-color-primary);
+  color: var(--bsw-color-white);
 }
 .bsw-button-status-default.bsw-button-type-outline {
-  background-color: var(--color-white);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-primary);
+  color: var(--bsw-color-primary);
 }
 .bsw-button-status-default.bsw-button-type-ghost {
   background-color: transparent;
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--bsw-color-primary);
+  color: var(--bsw-color-primary);
 }
 
-.bsw-button-status-primary {
-  background-color: var(--color-primary);
+.bsw-button-status-secondary {
+  background-color: var(--bsw-color-lightAccent);
 }
-.bsw-button-status-primary.bsw-button-type-default {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-white);
+.bsw-button-status-secondary.bsw-button-type-default {
+  background-color: var(--bsw-color-lightAccent);
+  border-color: var(--bsw-color-lightAccent);
+  color: var(--bsw-color-white);
 }
-.bsw-button-status-primary.bsw-button-type-outline {
-  background-color: var(--color-white);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+.bsw-button-status-secondary.bsw-button-type-outline {
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-lightAccent);
+  color: var(--bsw-color-lightAccent);
 }
-.bsw-button-status-primary.bsw-button-type-ghost {
+.bsw-button-status-secondary.bsw-button-type-ghost {
   background-color: transparent;
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--bsw-color-lightAccent);
+  color: var(--bsw-color-lightAccent);
 }
 
 .bsw-button-status-success {
-  background-color: var(--color-success);
+  background-color: var(--bsw-color-success);
 }
 .bsw-button-status-success.bsw-button-type-default {
-  background-color: var(--color-success);
-  border-color: var(--color-success);
-  color: var(--color-white);
+  background-color: var(--bsw-color-success);
+  border-color: var(--bsw-color-success);
+  color: var(--bsw-color-white);
 }
 .bsw-button-status-success.bsw-button-type-outline {
-  background-color: var(--color-white);
-  border-color: var(--color-success);
-  color: var(--color-success);
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-success);
+  color: var(--bsw-color-success);
 }
 .bsw-button-status-success.bsw-button-type-ghost {
   background-color: transparent;
-  border-color: var(--color-success);
-  color: var(--color-success);
+  border-color: var(--bsw-color-success);
+  color: var(--bsw-color-success);
 }
 
 .bsw-button-status-warning {
-  background-color: var(--color-warning);
+  background-color: var(--bsw-color-warning);
 }
 .bsw-button-status-warning.bsw-button-type-default {
-  background-color: var(--color-warning);
-  border-color: var(--color-warning);
-  color: var(--color-white);
+  background-color: var(--bsw-color-warning);
+  border-color: var(--bsw-color-warning);
+  color: var(--bsw-color-white);
 }
 .bsw-button-status-warning.bsw-button-type-outline {
-  background-color: var(--color-white);
-  border-color: var(--color-warning);
-  color: var(--color-warning);
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-warning);
+  color: var(--bsw-color-warning);
 }
 .bsw-button-status-warning.bsw-button-type-ghost {
   background-color: transparent;
-  border-color: var(--color-warning);
-  color: var(--color-warning);
+  border-color: var(--bsw-color-warning);
+  color: var(--bsw-color-warning);
 }
 
 .bsw-button-status-danger {
-  background-color: var(--color-danger);
+  background-color: var(--bsw-color-danger);
 }
 .bsw-button-status-danger.bsw-button-type-default {
-  background-color: var(--color-danger);
-  border-color: var(--color-danger);
-  color: var(--color-white);
+  background-color: var(--bsw-color-danger);
+  border-color: var(--bsw-color-danger);
+  color: var(--bsw-color-white);
 }
 .bsw-button-status-danger.bsw-button-type-outline {
-  background-color: var(--color-white);
-  border-color: var(--color-danger);
-  color: var(--color-danger);
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-danger);
+  color: var(--bsw-color-danger);
 }
 .bsw-button-status-danger.bsw-button-type-ghost {
   background-color: transparent;
-  border-color: var(--color-danger);
-  color: var(--color-danger);
+  border-color: var(--bsw-color-danger);
+  color: var(--bsw-color-danger);
 }
-
-/* .bsw-button-type-default {
-  background-color: var(--haha-asd);
-}
-.bsw-button-type-outline {
-  background-color: var(--haha-asd);
-}
-.bsw-button-type-ghost {
-  background-color: var(--haha-asd);
-} */
-
-
 
 /* size */
 .bsw-button-size-default {
-  font-size: var(--font-size-default);
+  font-size: var(--bsw-font-size-default);
 }
 
 .bsw-button-size-xs {
-  font-size: var(--font-size-xs);
+  font-size: var(--bsw-font-size-xs);
 }
 
 .bsw-button-size-sm {
-  font-size: var(--font-size-sm);
+  font-size: var(--bsw-font-size-sm);
 }
 
 .bsw-button-size-lg {
-  font-size: var(--font-size-lg);
+  font-size: var(--bsw-font-size-lg);
 }
 
 .bsw-button-size-xl {
-  font-size: var(--font-size-xl);
+  font-size: var(--bsw-font-size-xl);
 }
 
 

@@ -18,7 +18,7 @@ const ButtonSection = () => {
           <div style={{display:'flex',flexDirection:'column'}}>
             Default
             <Button status="default">Click Me</Button>
-            <Button status="primary">Click Me</Button>
+            <Button status="secondary">Click Me</Button>
             <Button status="success">Click Me</Button>
             <Button status="warning">Click Me</Button>
             <Button status="danger">Click Me</Button>
@@ -26,7 +26,7 @@ const ButtonSection = () => {
           <div style={{display:'flex',flexDirection:'column'}}>
             Outline
             <Button status="default" type="outline">Click Me</Button>
-            <Button status="primary" type="outline">Click Me</Button>
+            <Button status="secondary" type="outline">Click Me</Button>
             <Button status="success" type="outline">Click Me</Button>
             <Button status="warning" type="outline">Click Me</Button>
             <Button status="danger" type="outline">Click Me</Button>
@@ -34,7 +34,7 @@ const ButtonSection = () => {
           <div style={{display:'flex',flexDirection:'column'}}>
             Ghost
             <Button status="default" type="ghost">Click Me</Button>
-            <Button status="primary" type="ghost">Click Me</Button>
+            <Button status="secondary" type="ghost">Click Me</Button>
             <Button status="success" type="ghost">Click Me</Button>
             <Button status="warning" type="ghost">Click Me</Button>
             <Button status="danger" type="ghost">Click Me</Button>

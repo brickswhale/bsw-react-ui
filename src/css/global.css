@@ -1,82 +1,89 @@
 :root {
 
   /* Color */
-  --color-white: #FFFFFF;
-  --color-black: #262626; /* 85% of #000000 black */
-  --color-grey: #CCCCCC;
+  --bsw-color-white: #FFFFFF;
+  --bsw-color-black: #262626; /* 85% of #000000 black */
+  --bsw-color-grey: #CCCCCC;
 
-  --color-white-opacity: rgba(255,255,255,0.4);
-  --color-black-opacity: rgba(0,0,0,0.4);
+  --bsw-color-white-opacity: rgba(255,255,255,0.4);
+  --bsw-color-black-opacity: rgba(0,0,0,0.4);
 
-  --color-dynamic-light: #000000;
-  --color-dynamic-dark: #000000;
+  --bsw-color-dynamic-light: #000000;
+  --bsw-color-dynamic-dark: #000000;
 
-  --color-lightShades: #F6F6F6; /* Light shades: Use this color as the background for your dark-on-light designs, or the text color of an inverted design. */
-  --color-lightAccent: #D2B659; /* Light accent: Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
-  --color-primary: #73BCE6; /* Main brand color: This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity. */
-  --color-darkAccent: #73708C; /* Dark accent: Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
-  --color-darkShades: #3B73B4; /* Dark shades: Use as the text color for dark-on-light designs, or as the background for inverted designs. */
+  --bsw-color-lightShades: #F6F6F6; /* Light shades: Use this color as the background for your dark-on-light designs, or the text color of an inverted design. */
+  --bsw-color-lightAccent: #D2B659; /* Light accent: Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
+  --bsw-color-primary: #73BCE6; /* Main brand color: This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity. */
+  --bsw-color-darkAccent: #73708C; /* Dark accent: Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
+  --bsw-color-darkShades: #3B73B4; /* Dark shades: Use as the text color for dark-on-light designs, or as the background for inverted designs. */
 
-  --color-color1-plus: #beb3b3; /* Darker color 1*/
-  --color-color5-plus: #2f4862; /* Darker color 5*/
+  --bsw-color-color1-plus: #beb3b3; /* Darker color 1*/
+  --bsw-color-color5-plus: #2f4862; /* Darker color 5*/
 
   /* color opacity 60% */
-  --color-dynamic60: #00000099;
+  --bsw-color-dynamic60: #00000099;
 
-  --color-color160: #f9f8f899;
-  --color-color260: #8d8e9999;
-  --color-color360: #d2e68499;
-  --color-color460: #ae525099;
-  --color-color560: #40618499;
+  --bsw-color-color160: #f9f8f899;
+  --bsw-color-color260: #8d8e9999;
+  --bsw-color-color360: #d2e68499;
+  --bsw-color-color460: #ae525099;
+  --bsw-color-color560: #40618499;
 
-  --color-success: green;
-  --color-danger: red;
-  --color-warning: orange;
+  --bsw-color-success: green;
+  --bsw-color-warning: orange;
+  --bsw-color-danger: red;
 
+  /* contrast is the readable color for primary, reverse is the opposite */
+  --bsw-color-contrast: #000000;
+  --bsw-color-contrast-reverse: #000000;
 
   /* Typography */
-  --default-size: 1;
-  --font-size-default: 1em;
-  --font-size-xs: 0.5em;
-  --font-size-sm: 0.75em;
-  --font-size-lg: 1.25em;
-  --font-size-xl: 1.5em;
+  --bsw-default-size: 1;
+  --bsw-font-size-default: 1em;
+  --bsw-font-size-xs: 0.5em;
+  --bsw-font-size-sm: 0.75em;
+  --bsw-font-size-lg: 1.25em;
+  --bsw-font-size-xl: 1.5em;
 
-  --font-family1: 'Montserrat', sans-serif;
-  --font-family2: 'Open Sans', sans-serif;
-  --font-family3: 'Lobster', cursive;
+  --bsw-font-family1: 'Montserrat', sans-serif;
+  --bsw-font-family2: 'Open Sans', sans-serif;
+  --bsw-font-family3: 'Lobster', cursive;
+
 
   /* Sizing and spacing */
-  --space-1: 16px;
-  --space-button: 0.75em 2em;
-  --space-section: 0.75em 2em;
+  --bsw-spacing-1: 16px;
+  --bsw-spacing-2: 16px;
+  --bsw-space-button: 0.75em 2em;
+  --bsw-space-section: 0.75em 2em;
+  --bsw-padding: 16px;
+
 
   /* Border */
-  --border-radius-topleft: 0.25em;
-  --border-radius-topright: 0.25em;
-  --border-radius-bottomleft: 0.25em;
-  --border-radius-bottomright: 0.25em;
-  --border-radius: var(--border-radius-topleft) var(--border-radius-topright) var(--border-radius-bottomright) var(--border-radius-bottomleft);
-  --border-width: 0.5px;
+  --bsw-border-radius-topleft: 0.5em;
+  --bsw-border-radius-topright: 0.5em;
+  --bsw-border-radius-bottomleft: 0.5em;
+  --bsw-border-radius-bottomright: 0.5em;
+  --bsw-border-radius: var(--bsw-border-radius-topleft) var(--bsw-border-radius-topright) var(--bsw-border-radius-bottomright) var(--bsw-border-radius-bottomleft);
+  --bsw-border-width: 1px;
 
   /* shadow */
   /* negative - 0 - positive */
-  --shadow-horizontal: 0px; 
-  --shadow-vertical: 0px;
-  --shadow-spread: 2px;
+  --bsw-shadow-horizontal: 0px; 
+  --bsw-shadow-vertical: 0px;
+  --bsw-shadow-spread: 2px;
 
   /* 0 - positive */
-  --shadow-blur: 3px;
-  --shadow-opacity: "";
-  --shadow-color: rgba(0,0,0,0.4);
-  --shadow-button: var(--shadow-horizontal) var(--shadow-vertical) var(--shadow-blur) var(--shadow-spread) var(--shadow-color) 
+  --bsw-shadow-blur: 3px;
+  --bsw-shadow-opacity: "";
+  --bsw-shadow-color: rgba(0,0,0,0.4);
+  --bsw-shadow-button: var(--bsw-shadow-horizontal) var(--bsw-shadow-vertical) var(--bsw-shadow-blur) var(--bsw-shadow-spread) var(--bsw-shadow-color) 
 
 
 }
 
 /* Base */
 html {
-  font-size: var(--font-size-1);
+  font-size: var(--bsw-font-size-default);
 }
 
 html, body {
@@ -128,4 +135,85 @@ h5 {
 h6 {
   font-size: .75rem;
   font-weight: 500;
+}
+
+/* Colors for elements */
+[data-theme='white'] {
+  background-color: var(--bsw-color-white);
+  color: var(--bsw-color-black);
+}
+[data-theme='light'] {
+  background-color: var(--bsw-color-lightShades);
+  color: var(--bsw-color-lightShades-contrast);
+}
+[data-theme='dark'] {
+  background-color: var(--bsw-color-darkShades);
+  color: var(--bsw-color-darkShades-contrast);
+}
+[data-theme='black'] {
+  background-color: var(--bsw-color-black);
+  color: var(--bsw-color-white);
+}
+
+.bsw-color-set-1 {
+  background-color: var(--bsw-color-lightShades);
+  color: var(--bsw-color-lightShades-contrast);
+}
+.bsw-color-set-2 {
+  background-color: var(--bsw-color-darkShades-darken);
+  color: var(--bsw-color-darkShades);
+}
+.bsw-color-set-3 {
+  background-color: var(--bsw-color-darkShades);
+  color: var(--bsw-color-darkShades-contrast);
+}
+.bsw-color-set-4 {
+  background-color: var(--bsw-color-darkShades-darken);
+  color: var(--bsw-color-darkShades-contrast);
+}
+.bsw-color-set-5 {
+  background-color: var(--bsw-color-darkAccent);
+  color: var(--bsw-color-darkAccent-contrast);
+}
+
+[data-theme='dark'] .bsw-color-set-1 {
+  background-color: var(--bsw-color-darkShades);
+  color: var(--bsw-color-darkShades-contrast);
+}
+[data-theme='dark'].bsw-color-set-2 {
+  background-color: var(--bsw-color-darkShades-darken);
+  color: var(--bsw-color-darkShades-contrast);
+}
+[data-theme='dark'] .bsw-color-set-3 {
+  background-color: var(--bsw-color-lightShades);
+  color: var(--bsw-color-lightShades-contrast);
+}
+[data-theme='dark'] .bsw-color-set-4 {
+  background-color: var(--bsw-color-lightShades-darken);
+  color: var(--bsw-color-darkShades);
+}
+[data-theme='dark'] .bsw-color-set-5 {
+  background-color: var(--bsw-color-darkAccent);
+  color: var(--bsw-color-darkAccent-contrast);
+}
+
+[data-theme='black'] .bsw-color-set-1 {
+  background-color: var(--bsw-color-black);
+  color: var(--bsw-color-white);
+}
+[data-theme='black'] .bsw-color-set-2 {
+  background-color: var(--bsw-color-darkShades);
+  color: var(--bsw-color-darkShades-contrast);
+}
+[data-theme='black'] .bsw-color-set-3 {
+  background-color: var(--bsw-color-lightShades);
+  color: var(--bsw-color-lightShades-contrast);
+}
+[data-theme='black'] .bsw-color-set-4 {
+  background-color: var(--bsw-color-lightShades-darken);
+  color: var(--bsw-color-darkShades);
+}
+[data-theme='black'] .bsw-color-set-5 {
+  background-color: var(--bsw-color-darkAccent);
+  color: var(--bsw-color-darkAccent-contrast);
 }

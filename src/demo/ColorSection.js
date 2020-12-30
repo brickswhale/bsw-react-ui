@@ -1,5 +1,5 @@
-import chroma from 'chroma-js';
 import React from 'react';
+import chroma from 'chroma-js';
 import { useThemeProvider } from '../components/theme-provider/theme-provider';
 const ColorSection = () => {
     let [ state ]= useThemeProvider();
