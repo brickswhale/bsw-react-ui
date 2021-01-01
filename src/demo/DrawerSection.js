@@ -3,7 +3,7 @@ import Drawer from '../components/drawer/drawer';
 
 const DrawerSection = (props) => {
     const [ visible, setVisible ] = useState(true);
-    const [ direction, setDirection ] = useState("bottom");
+    const [ direction, setDirection ] = useState("left");
 
     const onClose = () => {
         setVisible(false)

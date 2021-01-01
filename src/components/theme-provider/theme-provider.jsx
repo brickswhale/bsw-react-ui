@@ -40,7 +40,7 @@ const setCSSVariables = (theme, type="color") => {
       if (type == 'color') {
         // rgb
         let colorRGB = chroma(color).rgb();
-        document.documentElement.style.setProperty(`--${aCategory}-${value}-rgb`, colorRGB);
+        document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}-rgb`, colorRGB);
 
         // contrast
         let contrastColor = "#FFFFFF";
@@ -48,11 +48,15 @@ const setCSSVariables = (theme, type="color") => {
         if (contrastLevel <= 4.5) {
           contrastColor = "#262626";
         }
-        document.documentElement.style.setProperty(`--${aCategory}-${value}-contrast`, contrastColor);
+        document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}-contrast`, contrastColor);
 
         // darken
         let darkenColor = chroma(color).darken()
-        document.documentElement.style.setProperty(`--${aCategory}-${value}-darken`, darkenColor);
+        document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}-darken`, darkenColor);
+
+        // brighten
+        let brightenColor = chroma(color).brighten()
+        document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}-brighten`, brightenColor);
 
         // find success, warning, danger colors based on primary color
         if (value == "primary") {
@@ -65,12 +69,12 @@ const setCSSVariables = (theme, type="color") => {
           let successColor = chroma([140, saturation, lightness], 'hsl')
           let warningColor = chroma([40, saturation, lightness], 'hsl')
           let dangerColor = chroma([0, saturation, lightness], 'hsl')
-          document.documentElement.style.setProperty(`--${aCategory}-success`, successColor);
-          document.documentElement.style.setProperty(`--${aCategory}-warning`, warningColor);
-          document.documentElement.style.setProperty(`--${aCategory}-danger`, dangerColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-success`, successColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-warning`, warningColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-danger`, dangerColor);
         }
       }
-      document.documentElement.style.setProperty(`--${aCategory}-${value}`, color);
+      document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}`, color);
     }
   })
 };

@@ -3,12 +3,13 @@ import './drawer.css';
 
 const Drawer = (props) => {
     const {
-        direction="left",
+        position="left",
         height="256px",
         width="256px",
         coverage="full", 
         header=undefined,
         title="",
+        closable=true,
         closeIcon=null,
         footer=null,
         visible=false,
@@ -36,13 +37,13 @@ const Drawer = (props) => {
         width: width
     }
 
-    if (direction == "left" || direction == "right") {
+    if (position == "left" || position == "right") {
         contentWrapperStyle = {
             width: width
         }
     }
 
-    if (direction == "top" || direction == "bottom") {
+    if (position == "top" || position == "bottom") {
         contentWrapperStyle = {
             height: height
         }
@@ -50,7 +51,7 @@ const Drawer = (props) => {
 
     let contentWrapperTransform = {}
     if (!visible) {
-        switch(direction) {
+        switch(position) {
             case "left":
                 contentWrapperTransform["transform"] = "translateX(-100%)"
                 break;
@@ -70,7 +71,7 @@ const Drawer = (props) => {
 
     const CloseIcon = () => (
         <div className="bsw-drawer-closeIcon" onClick={handleOnClose}>
-            X
+            <svg height="10pt" width="10pt" viewBox="0 0 329.26933 329" xmlns="http://www.w3.org/2000/svg"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/></svg>
         </div>
     )
 
@@ -80,7 +81,7 @@ const Drawer = (props) => {
             <div className={`bsw-drawer-header`} style={{justifyContent: title ? "space-between" : 'flex-end'}}>
                 {title}
                 {
-                    closeIcon ? closeIcon : <CloseIcon/>
+                    closable ? (closeIcon ? closeIcon : <CloseIcon/>) : null
                 }
             </div>
         )
@@ -88,7 +89,7 @@ const Drawer = (props) => {
     
 
     return (
-        <div className={`bsw-drawer bsw-drawer-direction-${direction} ${visible ? "bsw-drawer-open" : ""}`} {...restProps}>
+        <div className={`bsw-drawer bsw-drawer-position-${position} ${visible ? "bsw-drawer-open" : ""}`} {...restProps}>
             {
                 mask ? <div className="bsw-drawer-mask" onClick={handleMaskOnClick}></div> : null
             }

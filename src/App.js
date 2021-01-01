@@ -44,12 +44,13 @@ function App() {
         header={
           <div>
             Header
-            <Drawer/>
+            
           </div>
         }
         footer={
           <div>footer</div>
         }
+        //leftSidebar={<Controller/>}
       >
         <SectionContainer>
           <div className="section">
@@ -64,7 +65,7 @@ function App() {
         
         <div className="section">
           <div className="section-header">
-            Button
+            Button 
           </div>
           <div className="section-content">
             <ButtonSection/>
@@ -100,6 +101,7 @@ function App() {
                 )
               })
             }
+            <Drawer/>
           </div>
         </div>
 

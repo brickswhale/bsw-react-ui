@@ -21,10 +21,10 @@
   padding: var(--bsw-space-button);
   position: relative;
   font-weight: 400;
-  line-height: 1.5715;
+  /* line-height: 1.5715; */
   outline: none;
   border: none;
-  /* border-style: solid; */
+  border-style: solid;
   border-width: var(--bsw-border-width);
   border-radius: var(--bsw-border-radius);
 
@@ -49,22 +49,69 @@
 
 /* Status & Type */
 .bsw-button-status-default {
-  background-color: var(--bsw-color-primary);
+  background-color: var(--bsw-color-white);
 }
 .bsw-button-status-default.bsw-button-type-default {
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-white);
+  color: var(--bsw-color-black);
+}
+.bsw-button-status-default.bsw-button-type-default:hover {
+  background-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+}
+
+.bsw-button-status-default.bsw-button-type-outline {
+  background-color: var(--bsw-color-white);
+  border-color: var(--bsw-color-grey);
+  color: var(--bsw-color-black);
+}
+.bsw-button-status-default.bsw-button-type-outline:hover {
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  color: rgba(var(--bsw-color-primary-rgb), 0.8);
+}
+
+.bsw-button-status-default.bsw-button-type-ghost {
+  background-color: transparent;
+  border-color: var(--bsw-color-grey);
+  color: var(--bsw-color-black);
+}
+.bsw-button-status-default.bsw-button-type-ghost:hover {
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  color: rgba(var(--bsw-color-primary-rgb), 0.8);
+}
+
+.bsw-button-status-primary {
+  background-color: var(--bsw-color-primary);
+}
+.bsw-button-status-primary.bsw-button-type-default {
   background-color: var(--bsw-color-primary);
   border-color: var(--bsw-color-primary);
   color: var(--bsw-color-white);
 }
-.bsw-button-status-default.bsw-button-type-outline {
+.bsw-button-status-primary.bsw-button-type-default:hover {
+  background-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+}
+
+.bsw-button-status-primary.bsw-button-type-outline {
   background-color: var(--bsw-color-white);
   border-color: var(--bsw-color-primary);
   color: var(--bsw-color-primary);
 }
-.bsw-button-status-default.bsw-button-type-ghost {
+.bsw-button-status-primary.bsw-button-type-outline:hover {
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  color: rgba(var(--bsw-color-primary-rgb), 0.8);
+}
+
+.bsw-button-status-primary.bsw-button-type-ghost {
   background-color: transparent;
   border-color: var(--bsw-color-primary);
   color: var(--bsw-color-primary);
+}
+.bsw-button-status-primary.bsw-button-type-ghost:hover {
+  border-color: rgba(var(--bsw-color-primary-rgb), 0.8);
+  color: rgba(var(--bsw-color-primary-rgb), 0.8);
 }
 
 .bsw-button-status-secondary {

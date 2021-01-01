@@ -88,17 +88,17 @@ const HolyGrailLayout = (props) => {
     const footerWithExtraProp = addSpacingPropsToChild(footer);
     const childrenWithExtraProp = React.Children.map(children, child => {
         let result = child;
-        
+
         if (!child || !child.props || child.type == React.Fragment) {
             result = <div>{child}</div>
         }
 
         let newProps = {
-            className: `${result.props.className ? result.props.className : ""} ${isCentered}`
+            className: `${result.props.className ? result.props.className : ""} ${leftSidebar == null && rightSidebar == null ? isCentered : ""}`
         }
 
         // a react component
-        if (result.type.name) {
+        if (result.type.name && leftSidebar == null && rightSidebar == null) {
             newProps = {
                 bswCentered: isCentered
             }
@@ -118,7 +118,7 @@ const HolyGrailLayout = (props) => {
                 )
                 : null
             }
-            <div className={`bsw-holygrail-layout-main-type1 ${leftSidebar != null || rightSidebar != null ? isCentered : ""}`}>
+            <div className={`bsw-holygrail-layout-main-type1 ${leftSidebar == null && rightSidebar == null ? "" : isCentered}`}>
                 {
                     leftSidebar ? 
                     (
