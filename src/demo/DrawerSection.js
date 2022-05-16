@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Drawer from '../components/drawer/drawer';
 
 const DrawerSection = (props) => {
-    const [ visible, setVisible ] = useState(true);
-    const [ direction, setDirection ] = useState("left");
+    const [ visible, setVisible ] = useState(false);
+    const [ position, setPosition ] = useState("right");
 
     const onClose = () => {
         setVisible(false)
@@ -14,10 +14,10 @@ const DrawerSection = (props) => {
         <Drawer
             visible={visible}
             onClose={onClose}
-            direction={direction}
+            position={position}
             // mask={false}
         >
-            drawer here {direction}
+            drawer here {position}
         </Drawer>
         
         </div>

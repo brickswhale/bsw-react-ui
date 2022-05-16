@@ -8,7 +8,8 @@ const Button = (props) => {
     size="default", // default, xs, sm, lg, xl,
     bordered=false, 
     onClick=()=>{},
-    className="", 
+    className="",
+    style={}, 
 
     children, 
     ...restProps 
@@ -24,6 +25,7 @@ const Button = (props) => {
     <button 
       className={`bsw-button bsw-button-status-${status} bsw-button-type-${type} bsw-button-size-${size} ${className}`} 
       onClick={handleOnClick} 
+      style={style}
       {...restProps} 
     >
       {children}

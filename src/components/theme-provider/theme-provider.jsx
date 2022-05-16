@@ -70,8 +70,17 @@ const setCSSVariables = (theme, type="color") => {
           let warningColor = chroma([40, saturation, lightness], 'hsl')
           let dangerColor = chroma([0, saturation, lightness], 'hsl')
           document.documentElement.style.setProperty(`--bsw-${aCategory}-success`, successColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-success-rgb`, successColor.rgb());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-success-darken`, successColor.darken());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-success-brighten`, successColor.brighten());
           document.documentElement.style.setProperty(`--bsw-${aCategory}-warning`, warningColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-warning-rgb`, warningColor.rgb());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-warning-darken`, warningColor.darken());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-warning-brighten`, warningColor.brighten());
           document.documentElement.style.setProperty(`--bsw-${aCategory}-danger`, dangerColor);
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-danger-rgb`, dangerColor.rgb());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-danger-darken`, dangerColor.darken());
+          document.documentElement.style.setProperty(`--bsw-${aCategory}-danger-brighten`, dangerColor.brighten());
         }
       }
       document.documentElement.style.setProperty(`--bsw-${aCategory}-${value}`, color);
@@ -79,8 +88,13 @@ const setCSSVariables = (theme, type="color") => {
   })
 };
 
+const setBodyTheme = (theme="light") => {
+  // document.body.classList.add(`bsw-theme-${theme}`);
+  document.body.className = `bsw-theme-${theme}`;
+}
+
 function ThemeProvider(props) {
-  const { theme=null, type="light", children } = props;
+  const { theme=null, mode="light", children } = props;
   // if (theme != null) {
   //   initialState['theme'] = theme
   // }
@@ -89,7 +103,7 @@ function ThemeProvider(props) {
 
   const methods = useMemo(()=>({
     setTheme: (newTheme) => {
-      dispatch({ type: 'SET_THEME', theme: newTheme });
+      dispatch({ type: 'SET_THEME', theme: {...state.theme, ...newTheme} });
     }
   }),[]);
 
@@ -105,6 +119,7 @@ function ThemeProvider(props) {
     }
   },[theme]);
 
+  setBodyTheme(mode);
   return (
     <ThemeContext.Provider value={[state, methods]}>
       {children}

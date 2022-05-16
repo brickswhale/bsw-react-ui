@@ -14,8 +14,10 @@ import ButtonSection from './demo/ButtonSection';
 import TypographySection from './demo/TypographySection';
 import Controller from './demo/Controller';
 import SectionContainer from './demo/draft-components/section-container';
+import Button from './components/button/button';
 
 function App() {
+  const [ mode, setMode ] = useState('light');
   let theme = {
     color: {
       lightShades: "#F6F6F6",
@@ -25,8 +27,16 @@ function App() {
       darkShades: "#3B73B4"
     }
   }
-  let mainTheme = 'light';
 
+  const handleChangeMode = () => {
+    if (mode == 'light') {
+      setMode('dark')
+    }
+    else {
+      setMode('light')
+    }
+    console.log('hahaah')
+  }
 
 
   const Cart = (props) => {
@@ -39,12 +49,13 @@ function App() {
   }
   
   return (
-    <ThemeProvider>
+    <ThemeProvider mode={mode}>
       <HolyGrailLayout
         header={
           <div>
             Header
-            
+            <Drawer/>
+            <Button status="primary" onClick={()=>{handleChangeMode()}}>Change mode</Button>
           </div>
         }
         footer={
@@ -101,7 +112,7 @@ function App() {
                 )
               })
             }
-            <Drawer/>
+           
           </div>
         </div>
 
@@ -123,7 +134,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={null}>
-        <div className="box" data-theme={mainTheme}>
+        <div className="box">
           <div className="wrapper">
             <div className="controller">
               <Controller/>

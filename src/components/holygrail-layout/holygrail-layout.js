@@ -22,14 +22,6 @@ const HolyGrailLayout = (props) => {
         ...restProps
     } = props;
 
-    let containerStyle = {
-        display: "grid",
-        gridTemplateColumns: "",
-        gridTemplateRows: "",
-        gridColumnGap: 0,
-        gridRowGap: 0
-    }
-
     let isCentered = centered ? "bsw-holygrail-layout-centered" : "";
 
     // if (headerInFlow) {

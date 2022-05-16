@@ -6,7 +6,6 @@ const Drawer = (props) => {
         position="left",
         height="256px",
         width="256px",
-        coverage="full", 
         header=undefined,
         title="",
         closable=true,
@@ -16,6 +15,9 @@ const Drawer = (props) => {
         mask=true,
         maskClosable=true,
         onClose={function(){}},
+        bodyClassName="",
+        bodyStyle={},
+
         children, 
         ...restProps 
     } = props;
@@ -93,11 +95,11 @@ const Drawer = (props) => {
             {
                 mask ? <div className="bsw-drawer-mask" onClick={handleMaskOnClick}></div> : null
             }
-            <div className="bsw-drawer-content-wrapper" style={{...contentWrapperStyle, ...contentWrapperTransform}}>
+            <div className="bsw-drawer-content-wrapper bsw-color-set-3" style={{...contentWrapperStyle, ...contentWrapperTransform}}>
                 <div className="bsw-drawer-content">
                     <div className="bsw-drawer-body-wrapper">
                         {drawerHeader}
-                        <div className="bsw-drawer-body">
+                        <div className={`bsw-drawer-body ${bodyClassName}`} style={bodyStyle}>
                             {children}
                         </div>
                         {footer}

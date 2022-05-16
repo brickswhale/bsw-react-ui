@@ -142,7 +142,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--bsw-padding);
+    padding: var(--bsw-padding, 16px);
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -152,7 +152,7 @@
 
 .bsw-drawer-body {
     flex-grow: 1;
-    padding: var(--bsw-padding);
+    padding: var(--bsw-padding, 16px);
     overflow: auto;
     line-height: 1.5715;
 }

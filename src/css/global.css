@@ -53,16 +53,17 @@
   /* Sizing and spacing */
   --bsw-spacing-1: 16px;
   --bsw-spacing-2: 16px;
-  --bsw-space-button: 0.75em 2em;
+  --bsw-padding-button: 0.75em 2em;
   --bsw-space-section: 0.75em 2em;
   --bsw-padding: 16px;
 
 
   /* Border */
-  --bsw-border-radius-topleft: 0.5em;
-  --bsw-border-radius-topright: 0.5em;
-  --bsw-border-radius-bottomleft: 0.5em;
-  --bsw-border-radius-bottomright: 0.5em;
+  --bsw-border-radius-default: 1.5em;
+  --bsw-border-radius-topleft: var(--bsw-border-radius-default, 0.5em);
+  --bsw-border-radius-topright: var(--bsw-border-radius-default, 0.5em);
+  --bsw-border-radius-bottomleft: var(--bsw-border-radius-default, 0.5em);
+  --bsw-border-radius-bottomright: var(--bsw-border-radius-default, 0.5em);
   --bsw-border-radius: var(--bsw-border-radius-topleft) var(--bsw-border-radius-topright) var(--bsw-border-radius-bottomright) var(--bsw-border-radius-bottomleft);
   --bsw-border-width: 1px;
 
@@ -138,19 +139,19 @@ h6 {
 }
 
 /* Colors for elements */
-[data-theme='white'] {
+.bsw-theme-white {
   background-color: var(--bsw-color-white);
   color: var(--bsw-color-black);
 }
-[data-theme='light'] {
+.bsw-theme-light {
   background-color: var(--bsw-color-lightShades);
   color: var(--bsw-color-lightShades-contrast);
 }
-[data-theme='dark'] {
+.bsw-theme-dark {
   background-color: var(--bsw-color-darkShades);
   color: var(--bsw-color-darkShades-contrast);
 }
-[data-theme='black'] {
+.bsw-theme-black {
   background-color: var(--bsw-color-black);
   color: var(--bsw-color-white);
 }
@@ -176,44 +177,49 @@ h6 {
   color: var(--bsw-color-darkAccent-contrast);
 }
 
-[data-theme='dark'] .bsw-color-set-1 {
+.bsw-theme-dark .bsw-color-set-1 {
   background-color: var(--bsw-color-darkShades);
   color: var(--bsw-color-darkShades-contrast);
 }
-[data-theme='dark'].bsw-color-set-2 {
+.bsw-theme-dark .bsw-color-set-2 {
   background-color: var(--bsw-color-darkShades-darken);
   color: var(--bsw-color-darkShades-contrast);
 }
-[data-theme='dark'] .bsw-color-set-3 {
+.bsw-theme-dark .bsw-color-set-3 {
   background-color: var(--bsw-color-lightShades);
   color: var(--bsw-color-lightShades-contrast);
 }
-[data-theme='dark'] .bsw-color-set-4 {
+.bsw-theme-dark .bsw-color-set-4 {
   background-color: var(--bsw-color-lightShades-darken);
   color: var(--bsw-color-darkShades);
 }
-[data-theme='dark'] .bsw-color-set-5 {
+.bsw-theme-dark .bsw-color-set-5 {
   background-color: var(--bsw-color-darkAccent);
   color: var(--bsw-color-darkAccent-contrast);
 }
 
-[data-theme='black'] .bsw-color-set-1 {
+.bsw-theme-black .bsw-color-set-1 {
   background-color: var(--bsw-color-black);
   color: var(--bsw-color-white);
 }
-[data-theme='black'] .bsw-color-set-2 {
+.bsw-theme-black .bsw-color-set-2 {
   background-color: var(--bsw-color-darkShades);
   color: var(--bsw-color-darkShades-contrast);
 }
-[data-theme='black'] .bsw-color-set-3 {
+.bsw-theme-black .bsw-color-set-3 {
   background-color: var(--bsw-color-lightShades);
   color: var(--bsw-color-lightShades-contrast);
 }
-[data-theme='black'] .bsw-color-set-4 {
+.bsw-theme-black .bsw-color-set-4 {
   background-color: var(--bsw-color-lightShades-darken);
   color: var(--bsw-color-darkShades);
 }
-[data-theme='black'] .bsw-color-set-5 {
+.bsw-theme-black .bsw-color-set-5 {
   background-color: var(--bsw-color-darkAccent);
   color: var(--bsw-color-darkAccent-contrast);
+}
+
+
+.bsw-border-radius {
+  border-radius: var(--bsw-border-radius);
 }

@@ -19,7 +19,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "brickswhale.bsw-react-ui/drawer@1.0.0": {
+    "brickswhale.bsw-react-ui/drawer@1.0.1": {
         "files": [
             {
                 "relativePath": "src/components/drawer/drawer.css",
@@ -30,6 +30,11 @@
                 "relativePath": "src/components/drawer/drawer.js",
                 "test": false,
                 "name": "drawer.js"
+            },
+            {
+                "relativePath": "src/components/drawer/drawer.md",
+                "test": false,
+                "name": "drawer.md"
             }
         ],
         "mainFile": "src/components/drawer/drawer.js",
